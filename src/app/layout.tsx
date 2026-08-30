@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     siteName: VERTIZ.nome,
+    images: [{ url: '/logo-vertiz.jpg', width: 150, height: 150, alt: VERTIZ.nome }],
   },
   robots: { index: true, follow: true },
 }

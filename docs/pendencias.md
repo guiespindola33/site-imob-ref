@@ -9,7 +9,7 @@ Atualizado em 30/08/2026, ao final da primeira sessão de desenvolvimento.
 | # | Pendência | Status |
 |---|---|---|
 | ~~1~~ | ~~Criar o projeto Supabase dedicado da Vertiz~~ | **Feito em 30/08/2026.** Projeto `site-vertiz` (`smoaxeujwcqwpjuteuqr`), org "Site ABE", plano **free** (US$ 0/mês), região `sa-east-1`. 5 migrations + 3 correções pós-auditoria aplicadas e verificadas contra o Postgres real. Ver seção 6. |
-| 2 | **Logo em alta resolução** | O monograma VZ hoje é um placeholder tipográfico em SVG (`src/components/brand/logo.tsx`), fiel ao logo atual mas não é o arquivo original. | Vertiz |
+| ~~2~~ | ~~Logo em alta resolução~~ | **Feito em 30/08/2026.** Arquivo real recebido (`vertiz_logo.jpg`, 150×150, export tipo foto de perfil). Salvo em `public/logo-vertiz.jpg` (selo completo — favicon e Open Graph) e `public/logo-vertiz-monograma.png` (monograma recortado — header/footer/painel). Ver nota sobre a cor do navy na seção 2. |
 | 3 | **Modelo de contratação** (SaaS x projeto fechado) | Define se o projeto fica no free (some após 7 dias sem uso, sem backup garantido) ou sobe para o Pro (US$ 25/mês — backup diário, sem pausa) antes de ir ao ar. | Comercial |
 | 4 | **Validar o fluxo manual de leads do WhatsApp** | O escopo já registra como pendente. Se a equipe recusar o cadastro manual, a alternativa é a API Oficial do WhatsApp (Meta) — mais caro e mais lento. | Guilherme + equipe Vertiz |
 | 5 | **Criar o primeiro usuário gestor** | Login e RLS já funcionam contra o banco real, mas nenhum usuário existe ainda. Ver seção 6. | Guilherme |
@@ -18,13 +18,13 @@ Atualizado em 30/08/2026, ao final da primeira sessão de desenvolvimento.
 
 ## 2. Premissas que assumi (confirmar e corrigir se estiver errado)
 
-| Onde | O que assumi | Como mudar |
+| Onde | O que assumi | Status |
 |---|---|---|
-| `src/app/(public)/contato/page.tsx` | **Horário de atendimento**: segunda a sexta, 8h–18h; sábado sob agendamento. Inventado — não estava no escopo. | Editar o texto no card "Atendimento" |
-| Paleta | Navy `#0B2545` (do logo) + acento aqua `#12A594`. O aqua é escolha minha, para diferenciar do preto+dourado da ABE e evocar a região de praia. | `tailwind.config.ts` |
-| Tipografia | **DM Sans** (títulos) + **Inter** (corpo). O escopo sugeria "Inter ou DM Sans"; usei as duas com papéis distintos. | `src/app/layout.tsx` |
+| `src/app/(public)/contato/page.tsx` | **Horário de atendimento**: segunda a sexta, 8h–18h; sábado sob agendamento. | **Confirmado por Guilherme em 30/08/2026.** Mantido sem alteração. |
+| Paleta | Navy `#0B1B33` + acento dourado `#C08A3E` — direção "Filtro vivo", aprovada pelo cliente via mockup hifi (substituiu a paleta navy/aqua da primeira versão). | Aplicado em `tailwind.config.ts`. **Nota:** o navy real do logo (`#223C61`, amostrado do arquivo oficial) é mais claro/azulado que o navy do site. Mantive o navy do mockup aprovado por já ter passado por aprovação — o logo funciona como selo autocontido (carrega seu próprio fundo), então a diferença não gera inconsistência visual. Se quiser alinhar 100%, é um recálculo de escala em `tailwind.config.ts`. |
+| Tipografia | **DM Sans** (UI/corpo) + **Instrument Serif** (títulos editoriais) + **DM Mono** (labels/badges) — parte da direção "Filtro vivo" aprovada. | Aplicado em `src/app/layout.tsx`. |
 | Papéis | Apenas `corretor` e `gestor`. Guilherme entra como `gestor` (acesso pleno), como o escopo descreve. | `supabase/migrations/001_perfis.sql` |
-| Textos institucionais | Home, Sobre e Contato foram escritos por mim a partir do escopo. São conteúdo provisório. | Páginas em `src/app/(public)/` |
+| Textos institucionais | Home, Sobre e Contato foram escritos por mim a partir do escopo. | **Confirmado por Guilherme em 30/08/2026:** manter o tom atual, ajustando só dados factuais que ele fornecer. |
 | Cidade padrão | `Recife` / `PE` no cadastro de imóveis. | `supabase/migrations/002_imoveis.sql` |
 
 ---
