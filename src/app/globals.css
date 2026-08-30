@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Espaçamento (densidade padrão) */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2rem;
+    --space-6: 3rem;
+    --space-7: 4rem;
+
+    /* Altura da barra de CTA fixa — usada para reservar espaço e evitar CLS */
+    --sticky-cta-h: 4.5rem;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-offwhite text-ink font-sans antialiased;
+    /* Nenhum overflow horizontal em nenhum breakpoint */
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-semibold tracking-[-0.02em] text-navy-800;
+    text-wrap: balance;
+  }
+
+  /* Foco visível — nunca remover (a11y) */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-500 ring-offset-2 ring-offset-offwhite rounded-sm;
+  }
+
+  /* Preços e métricas com numerais tabulares */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Elemento revelado por scroll: começa oculto só quando o JS assume o controle.
+     Sem JS (ou com reduced-motion) o conteúdo permanece visível. */
+  [data-reveal] {
+    opacity: 1;
+  }
+  html.js-reveal [data-reveal] {
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-md bg-navy-100/60;
+  }
+
+  /* Placeholder de foto ausente — listras diagonais do mockup aprovado,
+     em vez de um retângulo liso. Usado em card de catálogo e galeria. */
+  .foto-placeholder {
+    background-image: repeating-linear-gradient(115deg, #e3ded4 0 9px, #dad4c8 9px 18px);
+  }
+
+  /* Chip de filtro — estado ativo usa o dourado da marca; inativo, borda sutil. */
+  .filtro-chip {
+    @apply inline-flex min-h-9 cursor-pointer items-center justify-center whitespace-nowrap
+      rounded-pill border px-3.5 text-[0.8125rem] font-medium transition-colors duration-200 ease-soft;
+  }
+  .filtro-chip[data-ativo='true'] {
+    @apply border-transparent bg-accent-500 text-white;
+  }
+  .filtro-chip[data-ativo='false'] {
+    @apply border-navy-200 bg-transparent text-navy-600 hover:border-navy-400;
+  }
+
+  /* Kicker técnico: badge, contador, rótulo uppercase com tracking (DM Mono). */
+  .kicker {
+    @apply font-mono uppercase tracking-[0.09em];
+  }
+
+  /*
+   * Slider de faixa de preço (dois <input type="range"> sobrepostos).
+   * O input inteiro é pointer-events:none (definido inline no componente) —
+   * só o thumb recebe pointer-events:auto, senão o input "de baixo" bloquearia
+   * cliques que deveriam ir para a trilha ou para o outro thumb.
+   */
+  .range-thumb::-webkit-slider-thumb {
+    appearance: none;
+    pointer-events: auto;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #fff;
+    border: 2px solid theme('colors.accent.500');
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(11, 27, 51, 0.15);
+  }
+  .range-thumb::-moz-range-thumb {
+    pointer-events: auto;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #fff;
+    border: 2px solid theme('colors.accent.500');
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(11, 27, 51, 0.15);
+  }
+  .range-thumb::-moz-range-track {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pb-sticky-cta {
+    padding-bottom: calc(var(--sticky-cta-h) + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Pulso sutil do CTA de WhatsApp — reforça a ação primária sem ser intrusivo.
+   Neutralizado pelo bloco de prefers-reduced-motion logo abaixo. */
+@keyframes vzPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
+  50% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+}
+
+/* Respeita preferência do sistema por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  html.js-reveal [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
