@@ -5,6 +5,7 @@ import { ImovelCard } from '@/components/imoveis/imovel-card'
 import { Reveal } from '@/components/motion/reveal'
 import { StaggerGrid } from '@/components/motion/stagger-grid'
 import { HeroIntro } from '@/components/motion/hero-intro'
+import { SkylineHorizonte } from '@/components/motion/skyline-horizonte'
 import { carregarFacetas, listarDestaques } from '@/services/imoveis'
 import { VERTIZ, linkWhatsApp, mensagemContatoGeral } from '@/lib/vertiz'
 
@@ -44,18 +45,7 @@ export default async function HomePage() {
     <>
       {/* ---------------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden bg-navy-900">
-        {/* Malha de gradiente sutil — profundidade sem custo de imagem */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-70"
-          style={{
-            backgroundImage:
-              'radial-gradient(60% 55% at 15% 0%, rgba(18,165,148,0.22) 0%, transparent 60%),' +
-              'radial-gradient(45% 45% at 90% 15%, rgba(74,114,166,0.28) 0%, transparent 65%)',
-          }}
-        />
-
-        <div className="container-app relative py-16 sm:py-24 lg:py-28">
+        <div className="container-app relative pb-40 pt-16 sm:pb-52 sm:pt-24 lg:pb-64 lg:pt-28">
           <HeroIntro>
             <p
               data-hero
@@ -107,6 +97,20 @@ export default async function HomePage() {
               ))}
             </ul>
           </HeroIntro>
+        </div>
+
+        {/*
+          Assinatura da home: o perfil de torres da orla de Boa Viagem/Setúbal,
+          não um gradiente decorativo — é a paisagem real que a Vertiz vende.
+          Ancorada no rodapé do hero, com fade pra não competir com o texto.
+        */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-44 lg:h-56"
+        >
+          <SkylineHorizonte className="absolute inset-x-0 bottom-0 h-full w-full text-accent-400" />
+          {/* Vigneta: esmaece o topo das torres no fundo navy, mantém a base nítida */}
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-navy-900/55 to-navy-900" />
         </div>
       </section>
 

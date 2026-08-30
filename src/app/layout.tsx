@@ -58,7 +58,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${sans.variable} ${editorial.variable} ${mono.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${sans.variable} ${editorial.variable} ${mono.variable}`}
+      // O script abaixo adiciona 'js-reveal' ANTES da hidratação — o React
+      // sempre veria isso como divergência do HTML gerado no servidor.
+      // A divergência é esperada (o servidor nunca deveria mesmo aplicar essa
+      // classe): suprimimos só o aviso, não a lógica.
+      suppressHydrationWarning
+    >
       <head>
         {/*
           Marca o documento antes da primeira pintura: só então o CSS esconde os
