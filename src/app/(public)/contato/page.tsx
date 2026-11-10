@@ -3,17 +3,17 @@ import { Instagram, MessageCircle, MapPin, Clock } from 'lucide-react'
 import { ButtonLink } from '@/components/ui/button'
 import { Reveal } from '@/components/motion/reveal'
 import {
-  VERTIZ,
+  SITE,
   linkWhatsApp,
   mensagemContatoGeral,
   whatsappFormatado,
-} from '@/lib/vertiz'
+} from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Contato',
   description:
-    `Fale com a ${VERTIZ.nome} pelo WhatsApp ${whatsappFormatado()} ou pelo Instagram ` +
-    `${VERTIZ.instagramHandle}. CRECI ${VERTIZ.creci}.`,
+    `Fale com a ${SITE.nome} pelo WhatsApp ${whatsappFormatado()} ou pelo Instagram ` +
+    `${SITE.instagramHandle}. CRECI ${SITE.creci}.`,
   alternates: { canonical: '/contato' },
 }
 
@@ -53,12 +53,12 @@ export default function ContatoPage() {
             <Instagram size={22} aria-hidden />
           </span>
           <h2 className="mt-4 text-xl">Instagram</h2>
-          <p className="mt-1 text-navy-500">{VERTIZ.instagramHandle}</p>
+          <p className="mt-1 text-navy-500">{SITE.instagramHandle}</p>
           <p className="mt-3 text-sm leading-relaxed text-navy-500">
             Lançamentos, oportunidades e novidades do portfólio publicados primeiro por lá.
           </p>
           <ButtonLink
-            href={VERTIZ.instagram}
+            href={SITE.instagram}
             externo
             variante="contorno"
             className="mt-5 w-full sm:w-auto"
@@ -73,7 +73,7 @@ export default function ContatoPage() {
           </span>
           <h2 className="mt-4 text-xl">Área de atuação</h2>
           <p className="mt-3 text-sm leading-relaxed text-navy-500">
-            {VERTIZ.atuacao}, com concentração em Boa Viagem e Setúbal.
+            {SITE.atuacao}, com concentração em Boa Viagem e Setúbal.
           </p>
         </Reveal>
 
@@ -86,7 +86,7 @@ export default function ContatoPage() {
             Segunda a sexta, das 8h às 18h. Sábados sob agendamento.
           </p>
           <p className="mt-4 text-xs uppercase tracking-[0.16em] text-navy-400">
-            CRECI {VERTIZ.creci}
+            CRECI {SITE.creci}
           </p>
         </Reveal>
       </div>

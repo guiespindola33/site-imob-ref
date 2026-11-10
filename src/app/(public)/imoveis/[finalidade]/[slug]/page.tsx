@@ -15,7 +15,7 @@ import { CtaConsultar } from '@/components/imoveis/cta-consultar'
 import { buscarImovelPorSlug, listarSlugsPublicados } from '@/services/imoveis'
 import { formatArea, formatMoeda } from '@/lib/utils/format'
 import { serializarJsonLd } from '@/lib/utils/json-ld'
-import { siteUrl, VERTIZ } from '@/lib/vertiz'
+import { siteUrl, SITE } from '@/lib/site-config'
 import {
   FINALIDADE_LABEL,
   STATUS_IMOVEL_LABEL,
@@ -282,7 +282,7 @@ export default async function ImovelPage({ params }: Params) {
             )}
 
             <p className="mt-8 text-xs text-navy-400">
-              {VERTIZ.nome} · CRECI {VERTIZ.creci}. Valores e disponibilidade sujeitos a
+              {SITE.nome} · CRECI {SITE.creci}. Valores e disponibilidade sujeitos a
               confirmação com a equipe.
             </p>
           </div>

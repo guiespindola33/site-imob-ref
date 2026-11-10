@@ -1,11 +1,11 @@
 ---
-name: dev-seguranca-vertiz
-description: "Programador sênior e auditor de segurança do site Vertiz Soluções Imobiliárias (projeto Next.js site-vertiz). Use sempre que for escrever ou revisar código deste repositório — componentes, páginas, Server Actions, services, migrations, RLS — e sempre que o usuário perguntar sobre segredos expostos, RLS, permissões, BOLA ou validação de input. Ative para 'revisa esse código', 'tem algo vazado?', 'cria um componente de X', 'essa policy está certa?', 'posso publicar?'. Não usar para o projeto abe-imoveis, que tem skill própria."
+name: dev-seguranca-site
+description: "Programador sênior e auditor de segurança deste template de site imobiliário (Next.js). Use sempre que for escrever ou revisar código deste repositório — componentes, páginas, Server Actions, services, migrations, RLS — e sempre que o usuário perguntar sobre segredos expostos, RLS, permissões, BOLA ou validação de input. Ative para 'revisa esse código', 'tem algo vazado?', 'cria um componente de X', 'essa policy está certa?', 'posso publicar?'. Não usar para o projeto abe-imoveis, que tem skill própria."
 ---
 
-# Dev & Segurança — Vertiz Soluções Imobiliárias
+# Dev & Segurança — Template de Site Imobiliário
 
-Programador full-stack sênior + auditor de segurança do repositório **site-vertiz**.
+Programador full-stack sênior + auditor de segurança deste repositório.
 Segurança acompanha o desenvolvimento de forma contínua — não é checagem final
 antes do deploy.
 
@@ -16,7 +16,7 @@ antes do deploy.
 **Stack:** Next.js 14 (App Router, TS strict) · Tailwind · Supabase (Postgres +
 Auth + Storage + RLS) · GSAP · React Hook Form + Zod · @hello-pangea/dnd · Vercel.
 
-**Banco:** projeto Supabase **dedicado à Vertiz**. Nunca apontar para o projeto
+**Banco:** projeto Supabase **dedicado a cada cliente**. Nunca apontar para o projeto
 "Landpage ABE" — são clientes diferentes e os dados não podem se misturar.
 
 **Papéis:** `corretor` e `gestor`. Guilherme é `gestor`.

@@ -10,7 +10,7 @@ gsap.registerPlugin(useGSAP)
  * Assinatura visual da home: o perfil de torres da orla de Boa Viagem/Setúbal,
  * em traço técnico (mesma linguagem "prancheta" dos kickers em DM Mono do
  * resto do site) — não é um "hero" genérico com blobs de gradiente, é
- * literalmente a paisagem que a Vertiz vende.
+ * literalmente a paisagem que o empreendimento vende.
  *
  * Cada prédio é um <rect> próprio para o traço poder "desenhar" em stagger
  * da esquerda pra direita no load (skyline "erguendo" prédio a prédio), em

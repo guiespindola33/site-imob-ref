@@ -7,7 +7,7 @@ import { StaggerGrid } from '@/components/motion/stagger-grid'
 import { HeroIntro } from '@/components/motion/hero-intro'
 import { SkylineHorizonte } from '@/components/motion/skyline-horizonte'
 import { carregarFacetas, listarDestaques } from '@/services/imoveis'
-import { VERTIZ, linkWhatsApp, mensagemContatoGeral } from '@/lib/vertiz'
+import { SITE, linkWhatsApp, mensagemContatoGeral } from '@/lib/site-config'
 
 export const revalidate = 300
 
@@ -51,7 +51,7 @@ export default async function HomePage() {
               data-hero
               className="kicker text-xs text-accent-300"
             >
-              CRECI {VERTIZ.creci} · {VERTIZ.atuacao}
+              CRECI {SITE.creci} · {SITE.atuacao}
             </p>
 
             <h1
@@ -89,7 +89,7 @@ export default async function HomePage() {
               data-hero
               className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-navy-300"
             >
-              {VERTIZ.servicos.map((s) => (
+              {SITE.servicos.map((s) => (
                 <li key={s} className="inline-flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent-400" aria-hidden />
                   {s}
@@ -101,7 +101,7 @@ export default async function HomePage() {
 
         {/*
           Assinatura da home: o perfil de torres da orla de Boa Viagem/Setúbal,
-          não um gradiente decorativo — é a paisagem real que a Vertiz vende.
+          não um gradiente decorativo — é a paisagem real do empreendimento.
           Ancorada no rodapé do hero, com fade pra não competir com o texto.
         */}
         <div

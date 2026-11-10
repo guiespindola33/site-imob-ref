@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { linkWhatsApp, mensagemContatoGeral } from '@/lib/vertiz'
+import { linkWhatsApp, mensagemContatoGeral } from '@/lib/site-config'
 
 /**
  * Rotas que já têm CTA fixo próprio — dois botões de WhatsApp competiriam.

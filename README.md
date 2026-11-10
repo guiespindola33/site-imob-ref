@@ -1,9 +1,15 @@
-# Vertiz Soluções Imobiliárias — site + painel
+# Template de site imobiliário + painel
 
 Catálogo público de imóveis com conversão direta no WhatsApp, mais painel interno
 (cadastro de imóveis + CRM com pipeline Kanban).
 
-**CRECI 21669-J · Grande Recife e Praias (PE)**
+> **Origem:** este template nasceu do site construído para a Vertiz Soluções
+> Imobiliárias (projeto encerrado em 11/2026). O código foi despersonalizado —
+> toda identidade do cliente (nome, CRECI, logo, contatos) agora vem de
+> `src/lib/site-config.ts` / variáveis de ambiente, não está mais hardcoded.
+> Preencha `.env.local` com os dados do novo cliente antes de publicar.
+
+**CRECI configurável · região configurável** (ver `.env.example`)
 
 ---
 
@@ -19,9 +25,8 @@ Catálogo público de imóveis com conversão direta no WhatsApp, mais painel in
 | Kanban | @hello-pangea/dnd |
 | Deploy | Vercel |
 
-> O banco é um **projeto Supabase dedicado à Vertiz** (`site-vertiz`,
-> ref `smoaxeujwcqwpjuteuqr`, plano free). Nunca compartilhar com o projeto
-> "Landpage ABE" — são clientes diferentes.
+> O banco deve ser um **projeto Supabase dedicado a cada cliente**. Nunca
+> compartilhar o mesmo projeto Supabase entre clientes diferentes.
 
 ---
 
@@ -35,6 +40,17 @@ npm run dev
 
 O site sobe mesmo sem Supabase configurado: as telas mostram estado vazio em vez
 de quebrar. O painel (`/crm`, `/cms`) exige banco e login.
+
+### Personalizando para um novo cliente
+
+1. Preencha `NEXT_PUBLIC_SITE_NOME`, `NEXT_PUBLIC_SITE_NOME_CURTO`,
+   `NEXT_PUBLIC_CRECI`, `NEXT_PUBLIC_ATUACAO`, `NEXT_PUBLIC_INSTAGRAM_URL`,
+   `NEXT_PUBLIC_INSTAGRAM_HANDLE` e `NEXT_PUBLIC_WHATSAPP_NUMERO` em `.env.local`
+   (defaults genéricos em `src/lib/site-config.ts`).
+2. Substitua o selo de iniciais em `src/components/brand/logo.tsx` por um
+   componente de imagem com o logo real, e adicione `public/logo.jpg` (usado no
+   Open Graph — referenciado em `src/app/layout.tsx`).
+3. Ajuste a paleta em `tailwind.config.ts` e `design-system/template/MASTER.md`.
 
 ### Scripts
 

@@ -5,7 +5,7 @@ import type { Database } from '@/types/database.types'
 /**
  * Indica se o projeto Supabase já está configurado no ambiente.
  *
- * Enquanto o banco dedicado da Vertiz não existe, o site precisa subir e ser
+ * Enquanto o banco dedicado do cliente não existe, o site precisa subir e ser
  * navegável. As telas usam isto para mostrar estado vazio em vez de estourar.
  */
 export function supabaseConfigurado(): boolean {

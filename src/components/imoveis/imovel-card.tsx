@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { formatArea, formatMoeda } from '@/lib/utils/format'
-import { linkWhatsApp, mensagemConsultaImovel, siteUrl } from '@/lib/vertiz'
+import { linkWhatsApp, mensagemConsultaImovel, siteUrl } from '@/lib/site-config'
 import { FINALIDADE_LABEL, STATUS_IMOVEL_LABEL, slugFinalidade, type ImovelComFotos } from '@/types'
 import { cn } from '@/lib/utils/cn'
 

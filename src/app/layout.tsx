@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { DM_Mono, DM_Sans, Instrument_Serif } from 'next/font/google'
-import { VERTIZ, siteUrl } from '@/lib/vertiz'
+import { SITE, siteUrl } from '@/lib/site-config'
 import './globals.css'
 
 // UI e corpo de texto.
@@ -32,18 +32,18 @@ const mono = DM_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
-    default: `${VERTIZ.nome} — Imóveis no Grande Recife e Praias`,
-    template: `%s | ${VERTIZ.nomeCurto}`,
+    default: `${SITE.nome} — Imóveis no Grande Recife e Praias`,
+    template: `%s | ${SITE.nomeCurto}`,
   },
   description:
     'Apartamentos, casas e coberturas à venda e para locação em Boa Viagem, Setúbal e região. ' +
-    `${VERTIZ.nome} — CRECI ${VERTIZ.creci}.`,
-  applicationName: VERTIZ.nome,
+    `${SITE.nome} — CRECI ${SITE.creci}.`,
+  applicationName: SITE.nome,
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    siteName: VERTIZ.nome,
-    images: [{ url: '/logo-vertiz.jpg', width: 150, height: 150, alt: VERTIZ.nome }],
+    siteName: SITE.nome,
+    images: [{ url: '/logo.jpg', width: 150, height: 150, alt: SITE.nome }],
   },
   robots: { index: true, follow: true },
 }

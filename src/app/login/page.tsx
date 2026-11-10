@@ -14,7 +14,7 @@ export default function LoginPage({
   searchParams: { redirect?: string }
 }) {
   // Só aceita caminho interno: `?redirect=https://site-malicioso` seria
-  // um open redirect usando o login da Vertiz como trampolim.
+  // um open redirect usando o login do site como trampolim.
   const destinoBruto = searchParams.redirect ?? '/crm'
   const destino =
     destinoBruto.startsWith('/') && !destinoBruto.startsWith('//') ? destinoBruto : '/crm'
@@ -31,7 +31,7 @@ export default function LoginPage({
         <div className="mt-8 rounded-card bg-white p-7 shadow-xl">
           <h1 className="text-xl">Acesso interno</h1>
           <p className="mt-1.5 text-sm text-navy-500">
-            Painel de imóveis e CRM da equipe Vertiz.
+            Painel de imóveis e CRM da equipe.
           </p>
           <LoginForm destino={destino} />
         </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { MessageCircle } from 'lucide-react'
-import { linkWhatsApp, mensagemConsultaImovel } from '@/lib/vertiz'
+import { linkWhatsApp, mensagemConsultaImovel } from '@/lib/site-config'
 import { cn } from '@/lib/utils/cn'
 
 interface Props {

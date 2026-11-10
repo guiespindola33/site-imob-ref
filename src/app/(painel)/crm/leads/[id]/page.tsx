@@ -4,7 +4,7 @@ import { ArrowLeft, ExternalLink, Mail, MessageCircle, Phone } from 'lucide-reac
 import { buscarLead } from '@/services/leads'
 import { exigirSessao } from '@/lib/auth/sessao'
 import { NotaForm } from '@/components/painel/nota-form'
-import { linkWhatsApp } from '@/lib/vertiz'
+import { SITE, linkWhatsApp } from '@/lib/site-config'
 import { ETAPA_LEAD_LABEL, ORIGEM_LEAD_LABEL, type LeadEvento } from '@/types'
 
 export const metadata = { title: 'Lead' }
@@ -57,7 +57,7 @@ export default async function LeadPage({ params }: { params: { id: string } }) {
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <a
-          href={linkWhatsApp(`Olá, ${lead.nome}! Aqui é da Vertiz Soluções Imobiliárias.`)}
+          href={linkWhatsApp(`Olá, ${lead.nome}! Aqui é da ${SITE.nome}.`)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex min-h-14 items-center gap-3 rounded-card border border-navy-100 bg-white px-4 transition-colors hover:border-whatsapp"

@@ -10,6 +10,7 @@ import { StaggerGrid } from '@/components/motion/stagger-grid'
 import { agregarOpcoes, carregarFacetas, listarCatalogo } from '@/services/imoveis'
 import { filtrosParaQuery, parseFiltros, temFiltroAtivo } from '@/lib/imoveis/filtros'
 import { TIPO_IMOVEL_LABEL, TIPO_IMOVEL_LABEL_PLURAL, type TipoImovel } from '@/types'
+import { SITE } from '@/lib/site-config'
 
 export const revalidate = 120
 
@@ -31,7 +32,7 @@ export async function generateMetadata({
   return {
     title: partes.join(' '),
     description:
-      `${partes.join(' ')} — catálogo da Vertiz Soluções Imobiliárias com valor, ficha completa ` +
+      `${partes.join(' ')} — catálogo da ${SITE.nome} com valor, ficha completa ` +
       'e atendimento direto no WhatsApp.',
     alternates: { canonical: '/imoveis' },
     robots: temFiltroAtivo(filtros) ? { index: false, follow: true } : { index: true, follow: true },
@@ -73,7 +74,7 @@ export default async function CatalogoPage({ searchParams }: { searchParams: Sea
     ? `Olá! Quero consultar a disponibilidade de imóveis em ${filtros.bairro}.`
     : filtros.finalidade
       ? `Olá! Quero consultar imóveis para ${filtros.finalidade === 'venda' ? 'comprar' : 'alugar'}.`
-      : 'Olá! Quero consultar a disponibilidade de imóveis no catálogo da Vertiz.'
+      : 'Olá! Quero consultar a disponibilidade de imóveis no catálogo.'
 
   return (
     <div className="container-app py-5 pb-sticky-cta lg:py-9 lg:pb-9">

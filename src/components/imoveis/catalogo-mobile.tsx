@@ -6,7 +6,7 @@ import { FiltroChip } from './filtro-chip'
 import { CatalogoCamposFiltro } from './catalogo-campos-filtro'
 import { CatalogoResultadoBarra } from './catalogo-resultado-barra'
 import { useAplicarFiltro } from '@/lib/imoveis/use-aplicar-filtro'
-import { linkWhatsApp } from '@/lib/vertiz'
+import { linkWhatsApp } from '@/lib/site-config'
 import type { FiltrosCatalogo } from '@/lib/imoveis/filtros'
 import type { OpcoesFiltro } from '@/services/imoveis'
 

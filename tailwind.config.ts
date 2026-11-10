@@ -22,7 +22,7 @@ const config: Config = {
         },
         // Acento dourado do mockup aprovado — preço, tags ativas, links.
         // Só no site público; o painel interno mantém `aqua` (fora do escopo
-        // deste rebrand, definido pela própria Vertiz como não prioritário).
+        // deste rebrand, definido pelo cliente original como não prioritário).
         accent: {
           50: '#FAF3E7',
           100: '#F2E4CF',

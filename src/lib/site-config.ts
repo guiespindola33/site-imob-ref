@@ -1,29 +1,32 @@
 /**
- * Constantes institucionais da Vertiz.
+ * Constantes institucionais do site — template genérico.
  * Fonte única — evita telefone/CRECI espalhados por componentes.
+ *
+ * Preencha com os dados reais do cliente antes de publicar (via env vars
+ * ou substituindo os valores padrão abaixo).
  */
 
-export const VERTIZ = {
-  nome: 'Vertiz Soluções Imobiliárias',
-  nomeCurto: 'Vertiz',
-  creci: process.env.NEXT_PUBLIC_CRECI ?? '21669-J',
+export const SITE = {
+  nome: process.env.NEXT_PUBLIC_SITE_NOME ?? 'Sua Imobiliária',
+  nomeCurto: process.env.NEXT_PUBLIC_SITE_NOME_CURTO ?? 'Imobiliária',
+  creci: process.env.NEXT_PUBLIC_CRECI ?? '00000-X',
   servicos: ['Vende', 'Aluga', 'Administra', 'Escritura'] as const,
-  atuacao: 'Grande Recife e Praias — PE',
-  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? 'https://instagram.com/vertizsolucoes',
-  instagramHandle: '@vertizsolucoes',
+  atuacao: process.env.NEXT_PUBLIC_ATUACAO ?? 'sua região',
+  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? 'https://instagram.com/',
+  instagramHandle: process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? '@sua_imobiliaria',
   /** Somente dígitos com DDI, formato aceito pelo wa.me */
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMERO ?? '5581999416438',
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMERO ?? '5500000000000',
 } as const
 
 export function siteUrl(): string {
   return (process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000').replace(/\/$/, '')
 }
 
-/** Telefone formatado para leitura: (81) 99941-6438 */
+/** Telefone formatado para leitura: (00) 00000-0000 */
 export function whatsappFormatado(): string {
-  const d = VERTIZ.whatsapp.replace(/\D/g, '')
+  const d = SITE.whatsapp.replace(/\D/g, '')
   const local = d.startsWith('55') ? d.slice(2) : d
-  if (local.length !== 11) return VERTIZ.whatsapp
+  if (local.length !== 11) return SITE.whatsapp
   return `(${local.slice(0, 2)}) ${local.slice(2, 7)}-${local.slice(7)}`
 }
 
@@ -32,7 +35,7 @@ export function whatsappFormatado(): string {
  * Todo CTA de imóvel passa por aqui — mensagem consistente em todo o site.
  */
 export function linkWhatsApp(mensagem?: string): string {
-  const base = `https://wa.me/${VERTIZ.whatsapp.replace(/\D/g, '')}`
+  const base = `https://wa.me/${SITE.whatsapp.replace(/\D/g, '')}`
   return mensagem ? `${base}?text=${encodeURIComponent(mensagem)}` : base
 }
 
@@ -45,5 +48,5 @@ export function mensagemConsultaImovel(params: {
 }
 
 export function mensagemContatoGeral(): string {
-  return 'Olá! Vim pelo site da Vertiz e gostaria de falar com um corretor.'
+  return `Olá! Vim pelo site da ${SITE.nomeCurto} e gostaria de falar com um corretor.`
 }

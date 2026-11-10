@@ -3,7 +3,7 @@ import { exigirSessao } from '@/lib/auth/sessao'
 import { PainelShell } from '@/components/painel/painel-shell'
 
 export const metadata: Metadata = {
-  title: { default: 'Painel', template: '%s | Painel Vertiz' },
+  title: { default: 'Painel', template: '%s | Painel' },
   // Área interna nunca é indexada, nem se o robots.txt for ignorado.
   robots: { index: false, follow: false, nocache: true },
 }

@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import { ShieldCheck, MapPinned, Handshake } from 'lucide-react'
 import { ButtonLink } from '@/components/ui/button'
 import { Reveal } from '@/components/motion/reveal'
-import { VERTIZ, linkWhatsApp, mensagemContatoGeral } from '@/lib/vertiz'
+import { SITE, linkWhatsApp, mensagemContatoGeral } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  title: 'Sobre a Vertiz',
+  title: `Sobre a ${SITE.nomeCurto}`,
   description:
-    `${VERTIZ.nome} — CRECI ${VERTIZ.creci}. Venda, locação, administração e escritura de ` +
+    `${SITE.nome} — CRECI ${SITE.creci}. Venda, locação, administração e escritura de ` +
     'imóveis no Grande Recife e nas praias de Pernambuco.',
   alternates: { canonical: '/sobre' },
 }
@@ -16,7 +16,7 @@ const PILARES = [
   {
     icone: ShieldCheck,
     titulo: 'Registro ativo no CRECI',
-    texto: `Atuação regularizada sob o CRECI ${VERTIZ.creci}, com responsabilidade técnica sobre cada negociação.`,
+    texto: `Atuação regularizada sob o CRECI ${SITE.creci}, com responsabilidade técnica sobre cada negociação.`,
   },
   {
     icone: MapPinned,
@@ -39,14 +39,14 @@ export default function SobrePage() {
         <div className="container-app py-14 sm:py-20">
           <Reveal>
             <p className="kicker text-xs text-accent-600">
-              CRECI {VERTIZ.creci}
+              CRECI {SITE.creci}
             </p>
             <h1 className="mt-4 max-w-2xl font-editorial text-[2rem] font-normal sm:text-5xl">
               Uma imobiliária que atende como quem mora aqui.
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-navy-500">
-              A {VERTIZ.nomeCurto} vende, aluga, administra e escritura imóveis no{' '}
-              {VERTIZ.atuacao}. O trabalho começa antes do anúncio e continua depois da entrega
+              A {SITE.nomeCurto} vende, aluga, administra e escritura imóveis no{' '}
+              {SITE.atuacao}. O trabalho começa antes do anúncio e continua depois da entrega
               das chaves.
             </p>
           </Reveal>
@@ -72,7 +72,7 @@ export default function SobrePage() {
 
         <Reveal className="mt-14 rounded-card bg-navy-800 px-6 py-12 text-center sm:px-12">
           <h2 className="mx-auto max-w-lg text-2xl text-white sm:text-3xl">
-            Quer anunciar seu imóvel com a Vertiz?
+            Quer anunciar seu imóvel com a {SITE.nomeCurto}?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-navy-200">
             A equipe avalia o imóvel, define o valor de mercado e cuida da divulgação.

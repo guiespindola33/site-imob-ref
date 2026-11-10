@@ -1,5 +1,5 @@
 /**
- * Tipos do banco da Vertiz.
+ * Tipos do banco (template genérico).
  *
  * Escritos à mão a partir de `supabase/migrations/*.sql`, depois cross-checados
  * contra `generate_typescript_types` no projeto real (smoaxeujwcqwpjuteuqr) —

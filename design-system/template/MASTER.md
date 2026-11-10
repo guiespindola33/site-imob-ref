@@ -1,7 +1,7 @@
-# Vertiz — Sistema de Design (fonte da verdade)
+# Template de Site Imobiliário — Sistema de Design (fonte da verdade)
 
 Derivado das skills `ui-ux-pro-max` e `frontend-design`, ajustado à identidade
-real da Vertiz (logo navy + monograma VZ) e ao contexto de uso: catálogo
+baseado no logo original do primeiro cliente (navy + monograma). Ajuste cores/logo por cliente.
 imobiliário consumido quase 100% no celular, vindo do Instagram/Linktree.
 
 ---

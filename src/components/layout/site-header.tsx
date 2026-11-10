@@ -6,7 +6,7 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { Logo } from '@/components/brand/logo'
 import { ButtonLink } from '@/components/ui/button'
-import { linkWhatsApp, mensagemContatoGeral } from '@/lib/vertiz'
+import { linkWhatsApp, mensagemContatoGeral } from '@/lib/site-config'
 import { cn } from '@/lib/utils/cn'
 
 /**
@@ -51,7 +51,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-navy-100 bg-white/85 backdrop-blur-md">
       <div className="container-app flex h-16 items-center justify-between gap-4">
-        <Link href="/" aria-label="Vertiz — página inicial" className="shrink-0">
+        <Link href="/" aria-label="Página inicial" className="shrink-0">
           <Logo />
         </Link>
 

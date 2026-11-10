@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { listarSlugsPublicados } from '@/services/imoveis'
-import { siteUrl } from '@/lib/vertiz'
+import { siteUrl } from '@/lib/site-config'
 import { slugFinalidade } from '@/types'
 
 export const revalidate = 3600

@@ -75,7 +75,7 @@ export function PainelShell({
       <aside className="hidden bg-navy-900 p-5 lg:flex lg:h-screen lg:flex-col lg:sticky lg:top-0">
         <Link href="/crm" className="flex items-center gap-2.5 px-1">
           <Monograma className="h-8 w-8" />
-          <span className="font-display text-base font-semibold text-white">Painel Vertiz</span>
+          <span className="font-display text-base font-semibold text-white">Painel</span>
         </Link>
 
         <div className="mt-7 flex-1">{links}</div>

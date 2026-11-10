@@ -1,26 +1,27 @@
-import Image from 'next/image'
 import { cn } from '@/lib/utils/cn'
-import monograma from '../../../public/logo-vertiz-monograma.png'
+import { SITE } from '@/lib/site-config'
 
 /**
- * Monograma VZ — recortado do arquivo real enviado pela Vertiz
- * (`public/logo-vertiz-monograma.png`, extraído de `public/logo-vertiz.jpg`).
- *
- * A imagem já traz seu próprio fundo navy (a cor real da marca, `#223C61`,
- * ligeiramente diferente do navy usado no restante do site) — por isso
- * funciona como selo autocontido tanto no header branco quanto no footer/
- * painel escuro, sem precisar de fundo transparente.
+ * Selo genérico (iniciais do nome curto) — placeholder de template.
+ * Substitua por um componente de imagem (ver README) quando houver
+ * um logo real do cliente.
  */
 export function Monograma({ className }: { className?: string }) {
+  const iniciais = SITE.nomeCurto
+    .split(/\s+/)
+    .map((p) => p[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase()
+
   return (
-    <span className={cn('block h-9 w-9 overflow-hidden rounded-[10px]', className)}>
-      <Image
-        src={monograma}
-        alt="Vertiz"
-        className="h-full w-full object-cover"
-        placeholder="blur"
-        priority
-      />
+    <span
+      className={cn(
+        'flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-navy-800 text-sm font-semibold text-white',
+        className
+      )}
+    >
+      {iniciais}
     </span>
   )
 }
@@ -42,7 +43,7 @@ export function Logo({
             invertido ? 'text-white' : 'text-navy-800'
           )}
         >
-          Vertiz
+          {SITE.nomeCurto}
         </span>
         <span
           className={cn(
